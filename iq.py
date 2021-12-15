@@ -6,7 +6,7 @@ import re
 
 class IQ:
     def __init__(self, men: bool = True):
-        self.sigma = 16.2 if men else 13.2
+        self.sigma = 16.2 if men else 13.2  # the values for σ might not be accurate
         self.mu = 100
 
     def gaussian(self, x):
