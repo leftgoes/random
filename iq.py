@@ -36,7 +36,11 @@ class IQ:
         if plot_iq is not None:
             percentile = self.percentile(plot_iq)
             if percentile > 99:
-                p = str(round(percentile, re.search(r'[^9]', str(percentile)[3:]).start() + 1)) + 'th'
+                if percentile <= 99.9:
+                    p = str(percentile)
+                else:
+                    p = str(round(percentile, re.search(r'[^9]', str(percentile)[3:]).start() + 1))
+                p += 'th'
             else:
                 p = str(round(percentile))
                 p += 'st' if p.endswith('1') else 'nd' if p.endswith('2') else 'rd' if p.endswith('3') else 'th'
